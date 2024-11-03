@@ -1,6 +1,6 @@
 # Trend Nest
 
-![Shopify Logo](https://upload.wikimedia.org/wikipedia/commons/1/1e/Shopify_Logo_2018.svg)
+![Shopify Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/290px-Shopify_logo_2018.svg.png)
 
 Welcome to **Trend Nest**! This is a Shopify-powered e-commerce store dedicated to providing trendy, high-quality products in a stylish and intuitive online shopping experience. 
 
