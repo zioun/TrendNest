@@ -20,10 +20,13 @@
   <div class="carousel-inner">
     {% for block in section.blocks %}
       <div class="carousel-item {% if forloop.index == 1 %} active {% endif %}">
+        {% if block.settings.slider_img != nil %}
         <img
-          src="{{ block.settings.slider_img | image_url: width: 200 }}"
-          class="d-block w-100"
+          src="{{ block.settings.slider_img | image_url: width: 1200 }}"
+          class="d-block w-100 "
+          style="height: 60vh; object-fit: cover;"
           alt="{{ block.settings.slider_img.alt | escape }}">
+        {% endif %}
       </div>
     {% endfor %}
   </div>
