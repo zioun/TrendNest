@@ -1,32 +1,60 @@
-{% assign collection = section.settings.collection %}
+{% liquid
+  assign collection_title = section.settings.collection_title
+  assign collection = section.settings.collection
+  assign product_limit = section.settings.product_limit
+%}
 <section class="container collection mt-5 mb-5">
   <div>
-    <h1>Collection</h1>
+    <h1>{{ collection_title }}
+      <span class="fs-4">({{ collection.all_products_count | escape }} items)</span>
+    </h1>
+
   </div>
   <div class="row">
-    {% for product in collection.products %}
-    <div class="col-3 mt-3 mb-3">
-      <div class="card p-3">
-        <img src="{{ product.url }}" alt="">
-        <div>
-          <h4 class="mt-2">{{ product.title |  escape }}</h4>
-          <strong>{{ product.price |  money }}</strong><br>
-          <button class="btn btn-primary mt-2">Add To Cart</button>
+    {% for product in collection.products limit: product_limit  %}
+      <div class="col-3 mt-3 mb-3">
+        <div class="card p-3">
+          <img class="{% if product.images.size > 1 %} first_image {% endif %}" loading="eager" src="{{ product.featured_image |  image_url: width: 300  }}" alt="{{ product.title |  escape }}">
+          {% if product.images.size > 1 %}
+          <img class="second_image" src="{{ product.images[1] |  image_url: width: 300  }}" alt="{{ product.title |  escape }}">
+          {% endif %}
+          <div>
+            <h4 class="mt-2">{{ product.title | escape }}</h4>
+            <strong>{{ product.price | money }}</strong><br>
+            <button class="btn btn-primary mt-2">Add To Cart</button>
+          </div>
         </div>
       </div>
-    </div>
     {% endfor %}
+    {% if collection.all_products_count > product_limit %}
+      <div class="w-100 text-center my-3">
+        <a href="{{ collection.url }}" class="btn btn-lg btn-outline-primary">See All</a>
+      </div>
+    {% endif %}
   </div>
 </section>
 
-{%  schema  %}
+{% schema %}
   {
     "name": "Collection",
     "settings": [
       {
+        "type": "text",
+        "id": "collection_title",
+        "label": "Collection",
+        "default": "Collection"
+      }, {
         "type": "collection",
         "id": "collection",
         "label": "Collection"
+      },{
+        "type": "range",
+        "min": 4,
+        "max": 100,
+        "step": 4,
+        "default": 8,
+        "id": "product_limit",
+        "label": "Product Limits"
       }
     ],
     "presets": [
