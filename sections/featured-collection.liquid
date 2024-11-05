@@ -1,52 +1,21 @@
+{% assign collection = section.settings.collection %}
 <section class="container collection mt-5 mb-5">
   <div>
     <h1>Collection</h1>
   </div>
   <div class="row">
+    {% for product in collection.products %}
     <div class="col-3 mt-3 mb-3">
       <div class="card p-3">
-        <img src="https://i.ibb.co.com/sPWfwKd/Untitled-design-4.png" alt="">
+        <img src="{{ product.url }}" alt="">
         <div>
-          <h4 class="mt-2">Striped Skirt and Top</h4>
-          <strong>$50.00</strong><br>
+          <h4 class="mt-2">{{ product.title |  escape }}</h4>
+          <strong>{{ product.price |  money }}</strong><br>
           <button class="btn btn-primary mt-2">Add To Cart</button>
         </div>
       </div>
     </div>
-    <div class="col-3 mt-3 mb-3">
-      <div class="card p-3">
-        <img src="https://i.ibb.co.com/sPWfwKd/Untitled-design-4.png" alt="">
-        <div>
-          <h4 class="mt-2">Striped Skirt and Top</h4>
-          <strong>$50.00</strong><br>
-          <button class="btn btn-primary mt-2">Add To Cart</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 mt-3 mb-3">
-      <div class="card p-3">
-        <img src="https://i.ibb.co.com/sPWfwKd/Untitled-design-4.png" alt="">
-        <div>
-          <h4 class="mt-2">Striped Skirt and Top</h4>
-          <strong>$50.00</strong><br>
-          <button class="btn btn-primary mt-2">Add To Cart</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-3 mt-3 mb-3">
-      <div class="card p-3">
-        <img src="https://i.ibb.co.com/sPWfwKd/Untitled-design-4.png" alt="">
-        <div>
-          <h4 class="mt-2">Striped Skirt and Top</h4>
-          <strong>$50.00</strong><br>
-          <button class="btn btn-primary mt-2">Add To Cart</button>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-    
+    {% endfor %}
   </div>
 </section>
 
