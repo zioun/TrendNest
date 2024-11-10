@@ -1,21 +1,31 @@
 {% liquid
-  assign blocks = section.settings.blocks
+  assign blocks = section.blocks
 %}
 
-<section class="newsletter-section">
-  <div class="container">
+{% style %}
+  #newsletter_{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+  #newsletter_{{ section.id }} .title {
+    color: {{ section.settings.title_color }};
+    font-size: {{ section.settings.font_size }}px;
+  }
+{% endstyle %}
+
+<section class="newsletter-section mt-5 mb-5">
+  <div class="container" id="newsletter_{{ section.id }}">
     <div class="newsletter-form text-center">
       {% for block in blocks %}
         {% case block.type %}
-          <div>
-            {% when 'title' %}
-              <div class="title">
-                <h1>{{ block.settings.title }}</h1>
-              </div>
-            {% when 'description' %}
-              <div class="newsletter-details">
-                <p>{{ block.settings.description }}</p>
-              </div>
+          {% when 'title' %}
+            <div class="title">
+              <h1 class="title">{{ block.settings.title }}</h1>
+            </div>
+          {% when 'description' %}
+            <div class="newsletter-details">
+              <p>{{ block.settings.description }}</p>
             </div>
           {% when 'email_form' %}
             {% form 'customer'
@@ -43,7 +53,46 @@
 {% schema %}
   {
     "name": "Newslatter",
-    "settings": [],
+    "settings": [
+      {
+        "type": "range",
+        "id": "padding_top",
+        "label": "Padding top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 52
+      }, {
+        "type": "range",
+        "id": "padding_bottom",
+        "label": "Padding bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "default": 52
+      },{
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background Color",
+        "default": "#DDDDDD"
+      },{
+        "type": "color",
+        "id": "title_color",
+        "label": "Title Color",
+        "default": "#000000"
+      },{
+        "type": "range",
+        "id": "font_size",
+        "label": "Title Font Size",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "default": 30
+      }
+    ],
     "blocks": [
       {
         "type": "title",
