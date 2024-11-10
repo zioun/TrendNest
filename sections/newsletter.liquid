@@ -1,63 +1,91 @@
-{%- comment -%}
-  This is a required section for the Shopify Theme Store.
-  It is available when you add "Newsletter" section on the Theme Editor.
+{% liquid
+  assign blocks = section.settings.blocks
+%}
 
-  Theme Store required settings
-  - Heading: title of the newsletter section
-  - Subheading: description of the newsletter section
-{%- endcomment -%}
-<section>
-  {% if section.settings.section_title != blank %}
-    <label for="Email">{{ section.settings.section_title | escape }}</label>
-  {% endif %}
-  {% if section.settings.subheading != blank %}
-    <p>{{ section.settings.subheading | escape }}</p>
-  {% endif %}
-
-  {% form 'customer' %}
-    {{ form.errors | default_errors }}
-    {% if form.posted_successfully? %}
-      <p>{{ 'general.newsletter_form.confirmation' | t }}</p>
-    {% else %}
-      <input type="hidden" name="contact[tags]" value="newsletter">
-      <input type="email"
-        name="contact[email]"
-        id="Email"
-        value="{% if customer.email != blank %}{{ customer.email }}{% endif %}"
-        placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
-        autocorrect="off"
-        autocapitalize="off">
-      <button type="submit" name="commit" id="Subscribe">
-        <span>{{ 'general.newsletter_form.submit' | t }}</span>
-      </button>
-    {% endif %}
-  {% endform %}
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-form text-center">
+      {% for block in blocks %}
+        {% case block.type %}
+          <div>
+            {% when 'title' %}
+              <div class="title">
+                <h1>{{ block.settings.title }}</h1>
+              </div>
+            {% when 'description' %}
+              <div class="newsletter-details">
+                <p>{{ block.settings.description }}</p>
+              </div>
+            </div>
+          {% when 'email_form' %}
+            {% form 'customer'
+              , class: 'newsletter-form' %}
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input
+                  type="email"
+                  name="contact[email]"
+                  class="form-control"
+                  placeholder="Username"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1">
+                <div class="input-group-text">
+                  <button type="submit" class="btn btn-secondary">Submit</button>
+                </div>
+              </div>
+            {% endform %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 {% schema %}
   {
-    "name": "Newsletter",
-    "settings": [
+    "name": "Newslatter",
+    "settings": [],
+    "blocks": [
       {
-        "type": "text",
-        "id": "section_title",
-        "label": "Heading",
-        "default": "Subscribe to our newsletter"
-      },
-      {
-        "type": "text",
-        "id": "subheading",
-        "label": "Subheading",
-        "default": "A short sentence describing what someone will receive by subscribing"
-      },
-      {
-        "type": "paragraph",
-        "content": "Any customers who sign up will have an account created for them in Shopify. [View customers](/admin/customers?query=&accepts_marketing=1)"
+        "type": "title",
+        "name": "Heading",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Subscribe us!"
+          }
+        ]
+      }, {
+        "type": "description",
+        "name": "Description",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "description",
+            "label": "Description"
+          }
+        ]
+      }, {
+        "type": "email_form",
+        "name": "Email Form",
+        "limit": 1
       }
     ],
-    "presets": [{
-      "name": "Newsletter",
-      "category": "Promotional"
-    }]
+    "presets": [
+      {
+        "name": "Newsletter",
+        "category": "Email",
+        "blocks": [
+          {
+            "type": "title"
+          }, {
+            "type": "email_form"
+          }
+        ]
+      }
+    ]
   }
 {% endschema %}
