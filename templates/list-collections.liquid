@@ -10,7 +10,14 @@
           <div class="col-md-3">
             <div class="card">
               <div class="card-body">
-
+                <div class="collection-img">
+                  <img src="{{ collection.featured_image |  img_url: 'medium' }}" width="100%" alt="{{ collection.title }}">
+                  {% comment %} or {% endcomment %}
+                  {% comment %} <img src="{{ collection.products.first.featured_image |  img_url: 'medium' }}" width="100%" alt="{{ collection.title }}"> {% endcomment %}
+                </div>
+                <div class="card-footer">
+                  <h5>{{ collection.title |  escape |  link_to: collection.url }}</h5>
+                </div>
               </div>
             </div>
           </div>
