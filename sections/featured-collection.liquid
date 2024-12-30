@@ -12,19 +12,7 @@
   </div>
   <div class="row">
     {% for product in collection.products limit: product_limit  %}
-      <div class="col-3 mt-3 mb-3">
-        <div class="card p-3">
-          <img class="{% if product.images.size > 1 %} first_image {% endif %}" loading="eager" src="{{ product.featured_image |  image_url: width: 300  }}" alt="{{ product.title |  escape }}">
-          {% if product.images.size > 1 %}
-          <img class="second_image" src="{{ product.images[1] |  image_url: width: 300  }}" alt="{{ product.title |  escape }}">
-          {% endif %}
-          <div>
-            <h4 class="mt-2">{{ product.title | escape }}</h4>
-            <strong>{{ product.price | money }}</strong><br>
-            <button class="btn btn-primary mt-2">Add To Cart</button>
-          </div>
-        </div>
-      </div>
+      {%- render 'product-card', product:product -%}
     {% endfor %}
     {% if collection.all_products_count > product_limit %}
       <div class="w-100 text-center my-3">
@@ -59,8 +47,7 @@
     ],
     "presets": [
       {
-        "name": "Featured Collection",
-        "category": "Collection"
+        "name": "Featured Collection"
       }
     ]
   }

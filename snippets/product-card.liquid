@@ -1,0 +1,30 @@
+<div class="col-md-3 mb-5">
+  <div class="card">
+    <div class="card-body">
+      {% if product.featured_image != blank %}
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image |  img_url: 'medium' }}" width="100%" alt="{{ product.title }}">
+        </a>
+      {% else %}
+        {{ 'image' | placeholder_svg_tag }}
+      {% endif %}
+    </div>
+    <div>
+      <div class="card-footer">
+        {% if product.compare_at_price > product.price %}
+          <span class="product-price">{{ product.price | money }}</span> -
+          <del style="color: gray;" class="product-compare-price">{{ product.compare_at_price | money }}</del>
+        {% else %}
+          <span class="product-price">{{ product.price | money }}</span>
+        {% endif %}
+        
+        <br>
+        <a href="{{ product.url }}"> {{ product.title }} </a>
+      </div>
+    </div>
+    <div class="action">
+      <a href="{{ product.url }}" class="btn btn-primary" style="width: 100%;">View Details</a>
+    </div>
+  </div>
+</div>
+
