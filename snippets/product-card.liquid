@@ -11,6 +11,7 @@
     </div>
     <div>
       <div class="card-footer">
+<<<<<<< HEAD
         {% if product.compare_at_price > product.price %}
           <span class="product-price">{{ product.price | money }}</span> -
           <del style="color: gray;" class="product-compare-price">{{ product.compare_at_price | money }}</del>
@@ -20,6 +21,9 @@
         
         <br>
         <a href="{{ product.url }}"> {{ product.title }} </a>
+=======
+        {% render 'price' product:product %}
+>>>>>>> 3ffad30 (added)
       </div>
     </div>
     <div class="action">
@@ -28,3 +32,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ffad30 (added)

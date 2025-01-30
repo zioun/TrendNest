@@ -1,4 +1,8 @@
 development:
+<<<<<<< HEAD
   password: shptka_59c765c56933f4fa7b18226acfe3b445
+=======
+  password: shptka_9e044f4b00193f2726ea4f9777d4ddb1
+>>>>>>> 3ffad30 (added)
   theme_id: "144870473957"
   store: trendnest-store.myshopify.com

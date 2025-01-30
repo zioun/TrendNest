@@ -6,6 +6,7 @@
         "blocks": {
           "collection-list-0": {
             "type": "collection",
+<<<<<<< HEAD
             "settings": {}
           },
           "collection-list-1": {
@@ -15,6 +16,23 @@
           "collection-list-2": {
             "type": "collection",
             "settings": {}
+=======
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-list-1": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-list-2": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+>>>>>>> 3ffad30 (added)
           }
         },
         "block_order": [
@@ -22,16 +40,30 @@
           "collection-list-1",
           "collection-list-2"
         ],
+<<<<<<< HEAD
         "settings": {}
+=======
+        "disabled": true,
+        "settings": {
+          "title": "Collection list"
+        }
+>>>>>>> 3ffad30 (added)
       },
       "featured-collection": {
         "type": "featured-collection",
         "settings": {
+<<<<<<< HEAD
           "collection": "frontpage"
+=======
+          "collection_title": "Collection",
+          "collection": "apparel",
+          "product_limit": 8
+>>>>>>> 3ffad30 (added)
         }
       },
       "featured-product": {
         "type": "featured-product",
+<<<<<<< HEAD
         "settings": {}
       }
     },
@@ -39,6 +71,235 @@
       "collection-list",
       "featured-collection",
       "featured-product"
+=======
+        "blocks": {
+          "title_fbtTrc": {
+            "type": "title",
+            "settings": {}
+          },
+          "price_Amw7XR": {
+            "type": "price",
+            "settings": {}
+          },
+          "quantity_Tedx9z": {
+            "type": "quantity",
+            "settings": {}
+          },
+          "description_td9FNU": {
+            "type": "description",
+            "settings": {}
+          },
+          "add_to_cart_HGfNAQ": {
+            "type": "addToCart",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "title_fbtTrc",
+          "price_Amw7XR",
+          "quantity_Tedx9z",
+          "description_td9FNU",
+          "add_to_cart_HGfNAQ"
+        ],
+        "settings": {
+          "featured_product": "zipped-jacket"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/trendnet-3.svg",
+          "menu": "main-menu",
+          "enable_search_box": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "menu_EHqk4J": {
+            "type": "menu",
+            "settings": {
+              "title": "Menu title",
+              "menu": "footer"
+            }
+          },
+          "menu_aehmgX": {
+            "type": "menu",
+            "settings": {
+              "title": "Menu title",
+              "menu": "main-menu"
+            }
+          },
+          "info_d7dJXT": {
+            "type": "info",
+            "settings": {
+              "info-title": "Info Title",
+              "rte": "<p>Credibly architect competitive solutions for fully researched architectures. Quickly repurpose high-payoff core competencies for backward-compatible supply chains. Assertively pontificate an.<\/p>"
+            }
+          },
+          "image_U3mTpk": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/putting-on-your-shoes_925x_d0dd8c39-9b81-4f12-a28e-2fc2b6341481.jpg",
+              "img_url": "#"
+            }
+          }
+        },
+        "block_order": [
+          "menu_EHqk4J",
+          "menu_aehmgX",
+          "info_d7dJXT",
+          "image_U3mTpk"
+        ],
+        "settings": {
+          "footer_bg_color": "#e9eaf7",
+          "btm_footer_text": "<p>@ Lorem ipsum dolor sit amet.<\/p>"
+        }
+      },
+      "slider_nVEWqL": {
+        "type": "slider",
+        "blocks": {
+          "slider_8PyJG7": {
+            "type": "Slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/pexels-asphotograpy-230544.jpg"
+            }
+          },
+          "slider_gmfwPX": {
+            "type": "Slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/pexels-negativespace-34577.jpg"
+            }
+          },
+          "slider_qgUqiX": {
+            "type": "Slider",
+            "settings": {
+              "slider_img": "shopify:\/\/shop_images\/pexels-pixabay-50987.jpg"
+            }
+          }
+        },
+        "block_order": [
+          "slider_8PyJG7",
+          "slider_gmfwPX",
+          "slider_qgUqiX"
+        ],
+        "settings": {}
+      },
+      "featured_product_trfrqH": {
+        "type": "featured-product",
+        "blocks": {
+          "title_YYNkG6": {
+            "type": "title",
+            "settings": {}
+          },
+          "price_RT4cgp": {
+            "type": "price",
+            "settings": {}
+          },
+          "variant_39N9JU": {
+            "type": "variant",
+            "settings": {}
+          },
+          "quantity_eXnMQn": {
+            "type": "quantity",
+            "settings": {}
+          },
+          "description_kEtwMQ": {
+            "type": "description",
+            "settings": {}
+          },
+          "add_to_cart_bPn4fW": {
+            "type": "addToCart",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "title_YYNkG6",
+          "price_RT4cgp",
+          "variant_39N9JU",
+          "quantity_eXnMQn",
+          "description_kEtwMQ",
+          "add_to_cart_bPn4fW"
+        ],
+        "settings": {
+          "featured_product": "classic-varsity-top"
+        }
+      },
+      "image_with_text_9mHPHD": {
+        "type": "image-with-text",
+        "blocks": {
+          "title_Fk6dak": {
+            "type": "title",
+            "settings": {
+              "title": "This is main title"
+            }
+          },
+          "description_JYzcYx": {
+            "type": "description",
+            "settings": {
+              "description": "<p>Enthusiastically iterate virtual relationships without accurate markets. Efficiently expedite effective sources through global e-services. Completely benchmark backward-compatible \"outside the box\".<\/p>"
+            }
+          },
+          "action_pmrnVz": {
+            "type": "action",
+            "settings": {
+              "btnLabel": "See More",
+              "btnUrl": "#"
+            }
+          }
+        },
+        "block_order": [
+          "title_Fk6dak",
+          "description_JYzcYx",
+          "action_pmrnVz"
+        ],
+        "settings": {
+          "position": "right",
+          "image": "shopify:\/\/shop_images\/menswear-blue-zip-up-jacket_925x_ebaf7bf9-148c-4e89-aa5b-e3daf2b6733c.jpg"
+        }
+      },
+      "newsletter_zV3Ge8": {
+        "type": "newsletter",
+        "blocks": {
+          "title_Y3ciVH": {
+            "type": "title",
+            "settings": {
+              "title": "Subscribe us!"
+            }
+          },
+          "description_GTT4h7": {
+            "type": "description",
+            "settings": {
+              "description": "<p>Completely formulate customized sources and an expanded array of infomediaries. Quickly supply emerging e-business through bleeding-edge supply chains. Dynamically empower.<\/p>"
+            }
+          },
+          "email_form_RAqt6f": {
+            "type": "email_form",
+            "settings": {}
+          }
+        },
+        "block_order": [
+          "title_Y3ciVH",
+          "description_GTT4h7",
+          "email_form_RAqt6f"
+        ],
+        "settings": {
+          "padding_top": 60,
+          "padding_bottom": 60,
+          "bg_color": "#dcdcdc",
+          "title_color": "#000000",
+          "font_size": 50
+        }
+      }
+    },
+    "content_for_index": [
+      "slider_nVEWqL",
+      "featured_product_trfrqH",
+      "featured-collection",
+      "collection-list",
+      "image_with_text_9mHPHD",
+      "newsletter_zV3Ge8"
+>>>>>>> 3ffad30 (added)
     ]
   },
   "presets": {
