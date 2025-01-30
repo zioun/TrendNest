@@ -1,0 +1,77 @@
+<div class="row flex-nowrap">
+  <div class="col-2 py-3" style="margin-top: 110px;">
+    <div class="card p-3">
+      <h5>Filters</h5>
+      <form id="filterForm">
+        <!-- Availability Filter -->
+        <div class="mb-3">
+          <h6>Availability</h6>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="inStock">
+            <label class="form-check-label" for="inStock">In stock</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="outOfStock">
+            <label class="form-check-label" for="outOfStock">Out of stock</label>
+          </div>
+          <button class="btn btn-primary btn-sm mt-2">Apply</button>
+        </div>
+
+        <!-- Price Filter -->
+        <div class="mb-3">
+          <h6>Price</h6>
+          <div class="d-flex">
+            <input type="number" class="form-control me-2" placeholder="From $0" id="priceFrom">
+            <input type="number" class="form-control" placeholder="To $80" id="priceTo">
+          </div>
+          <button class="btn btn-primary btn-sm mt-2">Apply</button>
+        </div>
+
+        <!-- Reset Button -->
+        <button type="button" class="btn btn-danger btn-sm w-100" id="resetButton">Clear all</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-10 py-3">
+    <div class="collection-header">
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+      {{ collection.description }}
+      {% endif %}
+    </div>
+    <div class="filter-heading">
+      <p class="badge bg-primary">Total Products : {{ collection.all_products_count }}</p>
+    </div>
+    <div class="collection-products my-3">
+      <div class="row">
+        {% for product in collection.products %}
+        {%- render 'product-card', product:product -%}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% schema %}
+{
+"name": "Collection Template",
+"settings": []
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+
+document.getElementById("resetButton").addEventListener("click", function() {
+document.getElementById("inStock").checked = false;
+document.getElementById("outOfStock").checked = false;
+document.getElementById("priceFrom").value = "";
+document.getElementById("priceTo").value = "";
+});
+
+{% endjavascript %}
+
